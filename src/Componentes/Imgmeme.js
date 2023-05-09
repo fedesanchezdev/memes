@@ -20,8 +20,12 @@ const Imgmeme = () => {
     }
 
     const descarga = (e) => {
-        html2canvas(document.body).then(function(canvas) {
-            document.body.appendChild(canvas);
+        html2canvas(document.querySelector("#exportar")).then(function(canvas) {
+            let img = canvas.toDataURL("memesimg/jpg");
+            let link = document.createElement("a");
+            link.download = "memepropio.jpg";
+            link.href = img;
+            link.click();
         }); 
     }
 
